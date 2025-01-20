@@ -1,4 +1,3 @@
-from re import S
 import pygame
 from constants import *
 from player import Player
@@ -15,10 +14,11 @@ def main():
             if event.type == pygame.QUIT:
                 return
         pygame.Surface.fill(screen, (0,0,0))
+        dt = clock.tick(60) / 1000
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
-        dt = clock.tick(60) / 1000
-
+        
     # print("Starting asteroids!")
     # print('Screen width:', SCREEN_WIDTH)
     # print('Screen height:', SCREEN_HEIGHT)
