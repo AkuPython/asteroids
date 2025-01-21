@@ -36,23 +36,22 @@ class Player(CircleShape):
     def update(self, dt):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_a]:
+        if keys[pygame.K_LEFT]:
             self.rotate(dt * - 1)
 
-        if keys[pygame.K_d]:
+        if keys[pygame.K_RIGHT]:
             self.rotate(dt)
 
-        if keys[pygame.K_w]:
+        if keys[pygame.K_UP]:
             self.move(dt)
 
-        if keys[pygame.K_s]:
+        if keys[pygame.K_DOWN]:
             self.move(dt * -1)
 
         if self.timer > 0:
             self.timer -= dt
         
         if keys[pygame.K_SPACE]:
-            print('space pressed')
             if self.timer <= 0:
                 self.shoot(dt)
                 self.timer = PLAYER_SHOOT_COOLDOWN
